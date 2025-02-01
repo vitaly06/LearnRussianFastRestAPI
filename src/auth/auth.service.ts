@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 export class AuthService {
     constructor(private readonly prisma: PrismaService, private jwtService: JwtService){}
 
-    async register(login: string, passwrod: string, fullName: string){
+    async register(login: string, passwrod: string, fullName: string, role: string){
         const today = new Date();
         const day = String(today.getDate()).padStart(2, '0');
         const month = String(today.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
@@ -19,7 +19,8 @@ export class AuthService {
                 login,
                 password: hashedPasswortd,
                 fullName,
-                registrationDate: formattedDate
+                registrationDate: formattedDate,
+                role
             }
         });
         return user;

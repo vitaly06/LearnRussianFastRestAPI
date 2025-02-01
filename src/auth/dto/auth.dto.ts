@@ -11,6 +11,9 @@ export class RegisterDto{
 
     @IsString()
     fullName: string;
+
+    @IsString()
+    role: string;
 }
 
 export class LoginDto{

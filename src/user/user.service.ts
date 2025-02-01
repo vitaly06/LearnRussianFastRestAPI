@@ -7,13 +7,13 @@ export class UserService {
 
     async findById(id){
         return this.prisma.user.findUnique({
-            where: {id : id}
+            where: {id : Number(id)}
         })
     }
 
     async updateUser(id, newData){
         return this.prisma.user.update({
-            where: {id: id},
+            where: {id: Number(id)},
             data: newData
         })
     }

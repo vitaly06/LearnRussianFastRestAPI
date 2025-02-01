@@ -17,4 +17,5 @@ model User{
   email String? @unique
   dateOfBirth String?
   phoneNumber String?
+  role String
 }
